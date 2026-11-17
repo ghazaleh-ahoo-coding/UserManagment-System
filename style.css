@@ -167,3 +167,39 @@ button:nth-of-type(5) {
 #overlay {
     display: none;
 }
+
+#overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background: rgba(10, 8, 21, 0.7);
+}
+
+#modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 11;
+    width: min(90vw, 460px);
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 24px;
+    transform: translate(-50%, -50%);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    background: #30234f;
+    box-shadow: 0 24px 60px rgba(10, 8, 21, 0.5);
+}
+
+#modal h3 {
+    margin-top: 0;
+}
+
+#modal ul {
+    padding-right: 24px;
+}
+
+#modal li {
+    margin-bottom: 16px;
+    white-space: pre-line;
+}

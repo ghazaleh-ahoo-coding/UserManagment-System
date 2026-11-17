@@ -13,6 +13,8 @@ const overlay = document.getElementById("overlay");
 let people = [];
 
 function showModal() {
+    overlay.style.display = "block";
+    modal.style.display = "block";
     overlay.style.opacity = "1";
     overlay.style.visibility = "visible";
     modal.style.opacity = "1";
@@ -85,6 +87,8 @@ document.getElementById("ShowModal").addEventListener("click", () => {
 //بستن مودال با کلیک روی پس زمینه
 // Clicking the overlay runs this callback and hides both the overlay and the modal.
 overlay.addEventListener("click", () => {
+    overlay.style.display = "none";
+    modal.style.display = "none";
     overlay.style.opacity = "0";
     overlay.style.visibility = "hidden";
     modal.style.opacity = "0";
@@ -109,8 +113,7 @@ document.getElementById("findByEmail").addEventListener("click", () => {
          <p> جنسیت: ${gender}</p>
         `;
     } else {
-        modal.innerHTML = `<p> فردی با این ایمیل یافت نشد!</p>`;
-    }
+        modal.innerHTML = `<p> فردی با این ایمیل یافت نشد!</p>`;    }
 
    showModal();
 });
