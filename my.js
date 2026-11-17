@@ -133,3 +133,18 @@ document.getElementById("findByEmail").addEventListener("click", () => {
 
     showModal();
 });
+// آیا همه شاغل اند؟
+document.getElementById("CheckAllHaveJob").addEventListener("click" , () => {
+    const allHaveJob = people.every(p=>p.job.trim() !== "");
+    modal.innerHTML = allHaveJob ? "<p> همه افراد دارای شغل هستن!✅</p>":"<p> برخی ازافراد شغل ثبت نکرده اند!❌</p>";
+
+    showModal();
+})
+// آیا حداقل یک مرد هست؟
+document.getElementById("CheckIfAnyMale").addEventListener("click" , () => {
+    const hasMale = people.some(p=>p.gender.trim() !== "مرد");
+
+    modal.innerHTML = hasMale ? "<p> حداقل یک مرد هست!👨</p>":"<p>هیچ مردی ثبت نشده است!🚫</p>";
+
+    showModal();
+})

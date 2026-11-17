@@ -17,11 +17,14 @@
 }
 
 body {
-    min-height: 100vh;
+    height: 100vh;
+    height: 100dvh;
     margin: 0;
     display: grid;
+    grid-template-rows: minmax(0, 1fr);
     place-items: center;
     padding: 24px;
+    overflow: hidden;
     background:
         linear-gradient(135deg, rgba(32, 22, 63, 0.92), rgba(71, 43, 115, 0.9)),
         url(/assets/images/back.jpeg) center/cover no-repeat;
@@ -39,9 +42,11 @@ body {
 
 main {
     width: 100%;
+    min-height: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;
 }
 
 .formContainer {
