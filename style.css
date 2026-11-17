@@ -1,18 +1,35 @@
 * {
     box-sizing: border-box;
 }
+
+:root {
+    --bg-1: #20163f;
+    --bg-2: #472b73;
+    --bg-3: #ff9cc9;
+    --card: rgba(255, 255, 255, 0.12);
+    --card-border: rgba(255, 255, 255, 0.25);
+    --text: #fef7ff;
+    --muted: rgba(255, 255, 255, 0.75);
+    --accent: #f8b4d9;
+    --accent-strong: #ff7bbd;
+    --button: linear-gradient(135deg, #ffb7d5, #d9a7ff 48%, #8ec5ff);
+    --button-shadow: rgba(255, 123, 189, 0.4);
+}
+
 body {
     min-height: 100vh;
     margin: 0;
-    background: url(/assets/images/back.jpeg) center/cover no-repeat;
-    background-color: rgba(0, 0, 0, 0.534);
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background:
+        linear-gradient(135deg, rgba(32, 22, 63, 0.92), rgba(71, 43, 115, 0.9)),
+        url(/assets/images/back.jpeg) center/cover no-repeat;
     background-blend-mode: overlay;
-    font-size: 20px;
-    font-family: shick;
-    padding: 20px;
+    font-size: 18px;
+    font-family: shick, "Segoe UI", sans-serif;
+    color: var(--text);
     transition: all 0.4s ease;
-
-
 }
 
 @font-face {
@@ -20,50 +37,133 @@ body {
     src: url(/font/DekoBrett.ttf);
 }
 
-form {
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.formContainer {
+    width: min(100%, 460px);
+    padding: 28px 24px 20px;
+    border: 1px solid var(--card-border);
+    border-radius: 28px;
+    background: var(--card);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 24px 60px rgba(10, 8, 21, 0.35);
+}
+
+.formContainer h2 {
+    margin: 0 0 20px;
+    text-align: center;
+    font-size: clamp(1.7rem, 1.5vw + 1rem, 2.4rem);
+    color: var(--text);
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: self-start;
-    padding: 10px;
+    gap: 12px;
 }
 
 form input,
-select {
-    width: 300px;
-    height: 50px;
-    border: none;
-    background-color: rgb(76, 162, 247);
-    padding: 12px;
-    margin-top: 10px;
-    border-radius: 5rem;
+form select {
+    width: 100%;
+    height: 54px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text);
+    padding: 14px 18px;
+    border-radius: 999px;
+    outline: none;
+    transition: all 0.25s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+form input::placeholder,
+form select {
+    color: var(--muted);
+}
+
+form input:focus,
+form select:focus {
+    border-color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 4px rgba(248, 180, 217, 0.2);
+}
+
+form select {
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, #fff 50%), linear-gradient(135deg, #fff 50%, transparent 50%);
+    background-position: calc(100% - 22px) calc(50% - 2px), calc(100% - 16px) calc(50% - 2px);
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+    padding-right: 42px;
 }
 
 option {
-    background-color: yellow;
+    background-color: #2f234c;
+    color: #fff;
     cursor: pointer;
 }
 
 button {
     border: none;
-    margin: 10px;
-    width: 200px;
-    height: 30px;
-    border-radius: 2rem;
-    background-color: rgb(241, 185, 72);
+    margin: 4px 0;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: var(--button);
+    color: #2a1d3b;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    box-shadow: 0 12px 24px var(--button-shadow);
 }
-.errorText{
-    color: red;
+
+button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.04);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:nth-of-type(2),
+button:nth-of-type(3),
+button:nth-of-type(4),
+button:nth-of-type(5) {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: none;
+}
+
+.errorText {
+    color: #ffd7e8;
     font-size: 15px;
 }
+
 .orderBox {
-     width: min(100%, 400px);
-     height: 250px;
-     overflow: hidden;
-     margin: 10px;
-     padding: 10px;
-     border-radius: 2rem;
-     background-color: aqua;
-     display: inline-block;
+    width: min(100%, 400px);
+    height: 250px;
+    overflow: hidden;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: inline-block;
+}
+
+#modal,
+#overlay {
+    display: none;
 }
