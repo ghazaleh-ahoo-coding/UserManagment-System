@@ -98,22 +98,38 @@ overlay.addEventListener("click", () => {
 document.getElementById("findByEmail").addEventListener("click", () => {
     const emailToFind = prompt("لطفا ایمیل مورد نظر را وارد کنید");
 
-   
+    // If the user presses Cancel, stop without opening the modal.
+    if (emailToFind === null) {
+        return;
+    }
 
-    const person = people.find((p) => p.email.trim().toLowerCase() === emailToFind);
+    // trim() removes extra spaces; toLowerCase() allows uppercase or lowercase input.
+    const normalizedEmail = emailToFind.trim().toLowerCase();
 
-    if (person) {
-        const { name, lastname, job, phone, gender } = person;
-        modal.innerHTML = `
-         <h3>فرد یافت شد </h3>
-         <p> نام:${name} </p>
-         <p>نام خانوادگی: ${lastname}</p>
-         <p>شغل: ${job}</p>
-         <p>شماره تماس:${phone}</p>
-         <p> جنسیت: ${gender}</p>
-        `;
+    // filter() checks every user and returns a new array with matching email addresses.
+    const matchingPeople = people.filter(
+        (person) => person.email.trim().toLowerCase() === normalizedEmail
+    );
+
+    if (matchingPeople.length === 0) {
+        modal.innerHTML = `<p> فردی با این ایمیل یافت نشد!</p>`;
     } else {
-        modal.innerHTML = `<p> فردی با این ایمیل یافت نشد!</p>`;    }
+        modal.innerHTML = `<h3>فرد یافت شد</h3>`;
+        const list = document.createElement("ul");
 
-   showModal();
+        // forEach() runs once for each match and adds that person's details to the list.
+        matchingPeople.forEach((person) => {
+            const listItem = document.createElement("li");
+            listItem.innerText = `نام: ${person.name}
+نام خانوادگی: ${person.lastname}
+شغل: ${person.job || "---"}
+شماره تماس: ${person.phone || "---"}
+جنسیت: ${person.gender || "---"}`;
+            list.appendChild(listItem);
+        });
+
+        modal.appendChild(list);
+    }
+
+    showModal();
 });
