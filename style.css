@@ -1,0 +1,69 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    margin: 0;
+    background: url(/assets/images/back.jpeg) center/cover no-repeat;
+    background-color: rgba(0, 0, 0, 0.534);
+    background-blend-mode: overlay;
+    font-size: 20px;
+    font-family: shick;
+    padding: 20px;
+    transition: all 0.4s ease;
+
+
+}
+
+@font-face {
+    font-family: "shick";
+    src: url(/font/DekoBrett.ttf);
+}
+
+form {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: self-start;
+    padding: 10px;
+}
+
+form input,
+select {
+    width: 300px;
+    height: 50px;
+    border: none;
+    background-color: rgb(76, 162, 247);
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 5rem;
+}
+
+option {
+    background-color: yellow;
+    cursor: pointer;
+}
+
+button {
+    border: none;
+    margin: 10px;
+    width: 200px;
+    height: 30px;
+    border-radius: 2rem;
+    background-color: rgb(241, 185, 72);
+}
+.errorText{
+    color: red;
+    font-size: 15px;
+}
+.orderBox {
+     width: min(100%, 400px);
+     height: 250px;
+     overflow: hidden;
+     margin: 10px;
+     padding: 10px;
+     border-radius: 2rem;
+     background-color: aqua;
+     display: inline-block;
+}

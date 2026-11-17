@@ -1,0 +1,39 @@
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steing Methods</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/my.js" defer></script>
+</head>
+<body>
+    <main>
+    
+
+    <!-- فرم -->
+        <section class="formContainer">
+            <h2>فرم ثبت اطلاعات کاربران</h2>
+            <form action="" id="userForm">
+                <input type="text" class="name" id="name" placeholder="نام">
+                <input type="text" class="lastname" id="lastname" placeholder="نام خانوادگی">
+                <input type="email" class="email" id="email" placeholder="ایمیل">
+                <input type="text" class="job" id="job" placeholder="شغل">
+                <input type="number" class="number" id="phone" placeholder="شماره تماس">
+                <select name="name" id="gender" >
+                    <option value="" > جنسیت را وارد کنید</option>
+                    <option value="آقا"> آقا</option>
+                    <option value="خانم">  خانم  </option>
+                </select>
+                <button type="submit" id="">افزودن</button>
+                <button type="button" id="ShowModal">نمایش همه کاربران</button>
+                <button type="button" id="findByEmail">پیدا کردن با ایمیل</button>
+                <button>آیا همه شاغل اند؟</button>
+                <button>آیا حداقل یک مرد هست؟</button>
+            </form>
+            <div id="overlay"></div>
+            <div id="modal"></div>
+        </section>
+    </main>
+</body>
+</html>
